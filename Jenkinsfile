@@ -1,7 +1,7 @@
 pipeline {
     agent {label "spc"}
     triggers {
-        pollSCM ("* * * * *")
+        pollSCM('* * * * *')
     }
     stages {
         stage ("git checkout") {
