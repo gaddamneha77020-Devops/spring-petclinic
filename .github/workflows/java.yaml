@@ -1,0 +1,14 @@
+name: java-workflow
+on:
+  push:
+    branches:
+      -main
+jobs:
+  build:
+    name: my-spc
+    runs-on: self-hosted
+    steps:
+      - name: gitcheckout
+        uses: actions/checkout@v6
+      - name: build java with maven
+        run: mvn package
