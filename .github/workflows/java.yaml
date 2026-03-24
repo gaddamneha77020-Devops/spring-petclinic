@@ -1,4 +1,4 @@
-name: Java-workflow
+name: Java-orkflow
 on:
   push:
     branches:
