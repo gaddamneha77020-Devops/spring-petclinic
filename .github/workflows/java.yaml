@@ -21,4 +21,5 @@ jobs:
         run: |
           mvn clean verify sonar:sonar \
           -Dsonar.host.url=$SONAR_HOST_URL \
-          -Dsonar.login=$SONAR_TOKEN
+          -Dsonar.login=$SONAR_TOKEN \
+          -Dsonar.organization=$gaddamneha77020-Devops
