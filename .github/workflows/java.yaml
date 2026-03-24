@@ -11,11 +11,14 @@ jobs:
     runs-on: self-hosted
     steps:
       - name: gitcheckout
-        uses: actions/checkout@v6
+        uses: actions/checkout@v4
       - name: build java with maven
         run: mvn package
       - name: Build and analyze
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
           SONAR_HOST_URL: ${{ vars.SONAR_HOST_URL }}
-        run: mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar
+        run: |
+          mvn clean verify sonar:sonar \
+          -Dsonar.host.url=$SONAR_HOST_URL \
+          -Dsonar.login=$SONAR_TOKEN
